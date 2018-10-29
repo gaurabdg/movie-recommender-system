@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module rec_sys</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>rec_sys</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/gaurabdg/Workspace/ir/SVD_RecSys/RecSystem/rec_sys.py">/home/gaurabdg/Workspace/ir/SVD_RecSys/RecSystem/rec_sys.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-baselineCF"><strong>baselineCF</strong></a>(utilityMatrix, similarityMatrix, userItemPredictList, k=1)</dt><dd><tt>Computes&nbsp;collaborative&nbsp;filtering&nbsp;with&nbsp;baseline&nbsp;approach<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;similarityMatrix<br>
+:param&nbsp;userItemPredictList<br>
+:param&nbsp;k</tt></dd></dl>
+ <dl><dt><a name="-compute_U"><strong>compute_U</strong></a>(A, r, row_idx, col_idx, ret_energy)</dt><dd><tt>Computation&nbsp;of&nbsp;U&nbsp;using&nbsp;Moore-Pennrose&nbsp;pseudoinverse<br>
+:param&nbsp;A:&nbsp;matrix&nbsp;to&nbsp;be&nbsp;decomposed<br>
+:param&nbsp;r:&nbsp;number&nbsp;of&nbsp;row/col&nbsp;selection<br>
+:param&nbsp;row_idx:&nbsp;set&nbsp;of&nbsp;selected&nbsp;row&nbsp;indices<br>
+:param&nbsp;col_idx:&nbsp;set&nbsp;of&nbsp;selected&nbsp;column&nbsp;indices<br>
+:return:&nbsp;U</tt></dd></dl>
+ <dl><dt><a name="-compute_cur"><strong>compute_cur</strong></a>(A, r, ret_energy)</dt><dd><tt>Main&nbsp;function&nbsp;to&nbsp;comput&nbsp;C,&nbsp;U,&nbsp;R<br>
+:param&nbsp;A:&nbsp;matrix&nbsp;to&nbsp;be&nbsp;decomposed<br>
+:param&nbsp;r:&nbsp;number&nbsp;of&nbsp;row/col&nbsp;selection<br>
+:return:&nbsp;C,&nbsp;U,&nbsp;R</tt></dd></dl>
+ <dl><dt><a name="-compute_svd"><strong>compute_svd</strong></a>(A, energy_retain=90)</dt><dd><tt>:param&nbsp;A:&nbsp;matrix&nbsp;to&nbsp;be&nbsp;decomposed<br>
+:param&nbsp;energy_retain:&nbsp;energy&nbsp;to&nbsp;retain<br>
+:return:&nbsp;U,&nbsp;sigma,&nbsp;Vtr</tt></dd></dl>
+ <dl><dt><a name="-energy"><strong>energy</strong></a>(sigma, reqd_energy)</dt><dd><tt>Calculates&nbsp;the&nbsp;number&nbsp;of&nbsp;singular&nbsp;values&nbsp;to&nbsp;retain&nbsp;in&nbsp;order&nbsp;to&nbsp;ensure&nbsp;the&nbsp;specified&nbsp;energy&nbsp;is&nbsp;retained.<br>
+:param&nbsp;sigma:&nbsp;singular&nbsp;values&nbsp;array<br>
+:param&nbsp;reqd_energy:&nbsp;energy&nbsp;to&nbsp;retain<br>
+:return:&nbsp;num_singular_vals</tt></dd></dl>
+ <dl><dt><a name="-generateSimilarityMatrix"><strong>generateSimilarityMatrix</strong></a>(utilityMatrix, similarityBetween='user-user', center=True)</dt><dd><tt>We&nbsp;are&nbsp;generating&nbsp;user&nbsp;user&nbsp;similarity&nbsp;using&nbsp;the&nbsp;Pearson&nbsp;Correlation&nbsp;Coefficient.&nbsp;if&nbsp;center&nbsp;=&nbsp;True<br>
+This&nbsp;ensures&nbsp;that&nbsp;the&nbsp;generous&nbsp;raters&nbsp;and&nbsp;strict&nbsp;raters&nbsp;are&nbsp;handled&nbsp;appropriately.<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;similarityBetween:&nbsp;specify&nbsp;the&nbsp;users<br>
+:param&nbsp;center:&nbsp;centred&nbsp;cosine<br>
+:return:&nbsp;similarity&nbsp;matrix</tt></dd></dl>
+ <dl><dt><a name="-getBaselineParameters"><strong>getBaselineParameters</strong></a>(utilityMatrix)</dt><dd><tt>Compute&nbsp;baseline&nbsp;parameters<br>
+:param&nbsp;utilityMatrix<br>
+:return:&nbsp;globalAverage,&nbsp;userDeviations,&nbsp;movieDeviations</tt></dd></dl>
+ <dl><dt><a name="-itemItemCF"><strong>itemItemCF</strong></a>(utilityMatrix, similarityMatrix, userItemPredictList, k=1)</dt><dd><tt>Computes&nbsp;item&nbsp;item&nbsp;collaborative&nbsp;filtering<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;similarityMatrix<br>
+:param&nbsp;userItemPredictList<br>
+:param&nbsp;k:<br>
+:return:&nbsp;rating&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-makeUtilityMatrix"><strong>makeUtilityMatrix</strong></a>(ratings, verbose=True)</dt><dd><tt>Generates&nbsp;the&nbsp;utility&nbsp;matrix&nbsp;from&nbsp;the&nbsp;data&nbsp;frame<br>
+:param&nbsp;ratings<br>
+:param&nbsp;verbose<br>
+:return:&nbsp;ratingsMatrix,&nbsp;movieAlises</tt></dd></dl>
+ <dl><dt><a name="-precisionAtK"><strong>precisionAtK</strong></a>(utilityMatrix, predictedValuesTupleList, k=35000, recommedCutOff=2.5)</dt><dd><tt>Calculates&nbsp;precision&nbsp;at&nbsp;k<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;predictedValuesTupleList<br>
+:param&nbsp;k<br>
+:param&nbsp;recommedCutOff<br>
+:return:&nbsp;result</tt></dd></dl>
+ <dl><dt><a name="-row_col_selection"><strong>row_col_selection</strong></a>(A, r, repeat)</dt><dd><tt>Function&nbsp;for&nbsp;row/column&nbsp;selection&nbsp;from&nbsp;A&nbsp;to&nbsp;form&nbsp;R/C&nbsp;respectively<br>
+:param&nbsp;A:&nbsp;matrix&nbsp;to&nbsp;be&nbsp;decomposed<br>
+:param&nbsp;r:&nbsp;number&nbsp;of&nbsp;selections<br>
+:param&nbsp;repeat:&nbsp;is&nbsp;repetitive&nbsp;selection&nbsp;allowed&nbsp;or&nbsp;not<br>
+:return:&nbsp;selected&nbsp;rows,&nbsp;R</tt></dd></dl>
+ <dl><dt><a name="-rsme"><strong>rsme</strong></a>(utilityMatrix, predictedValuesTupleList)</dt><dd><tt>calculates&nbsp;Root&nbsp;Mean&nbsp;Square&nbsp;Error<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;predictedValuesTupleList<br>
+:return:&nbsp;result&nbsp;of&nbsp;the&nbsp;formula</tt></dd></dl>
+ <dl><dt><a name="-sortedBySimilarity"><strong>sortedBySimilarity</strong></a>(similarityArray)</dt><dd><tt>This&nbsp;function&nbsp;looks&nbsp;at&nbsp;the&nbsp;the&nbsp;similarity&nbsp;scores&nbsp;and&nbsp;return&nbsp;the&nbsp;indexes&nbsp;in&nbsp;a&nbsp;descending&nbsp;order&nbsp;by&nbsp;similarity<br>
+:param&nbsp;similarityArray:<br>
+:return:&nbsp;indices</tt></dd></dl>
+ <dl><dt><a name="-spearman"><strong>spearman</strong></a>(utilityMatrix, predictedValuesTupleList)</dt><dd><tt>Calculates&nbsp;the&nbsp;Spearman&nbsp;Rank&nbsp;Correlation&nbsp;Coefficient<br>
+:param&nbsp;utilityMatrix:<br>
+:param&nbsp;predictedValuesTupleList:<br>
+:return:&nbsp;result</tt></dd></dl>
+ <dl><dt><a name="-userUserCF"><strong>userUserCF</strong></a>(utilityMatrix, similarityMatrix, userItemPredictList, k=1)</dt><dd><tt>Computes&nbsp;user&nbsp;user&nbsp;collaborative&nbsp;filtering<br>
+:param&nbsp;utilityMatrix<br>
+:param&nbsp;similarityMatrix<br>
+:param&nbsp;userItemPredictList<br>
+:param&nbsp;k<br>
+:return:&nbsp;user&nbsp;item&nbsp;rating&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-validationData"><strong>validationData</strong></a>(df, split=0.8)</dt><dd><tt>Split&nbsp;dataset<br>
+:param&nbsp;df:&nbsp;Pandas&nbsp;dataframe<br>
+:param&nbsp;split:&nbsp;The&nbsp;ratio&nbsp;in&nbsp;which&nbsp;to&nbsp;split&nbsp;train&nbsp;and&nbsp;test&nbsp;data<br>
+:return:&nbsp;ratingsMatrix,&nbsp;testUserMoviePairList</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>C</strong> = array([[0.        , 5.28919126, 0.        , ...,....., 0.        , 2.02819798,
+        0.        ]])<br>
+<strong>R</strong> = array([[0.        , 0.        , 0.        , ...,....., 0.        , 0.        ,
+        0.        ]])<br>
+<strong>U</strong> = array([[ 1.24367631e-05, -1.46449758e-05, -1.968...40173036e-06, -1.33781030e-05,  1.42817630e-05]])<br>
+<strong>__</strong> = array([[640.63362257,   0.        ,   0.        ...0.        ,
+          0.        ,  29.29344585]])<br>
+<strong>end</strong> = 106.986078175<br>
+<strong>iisim</strong> = array([[1.        , 0.31981694, 0.07753821, ...,...0.        ,
+        0.        ]], dtype=float128)<br>
+<strong>inbetween</strong> = 77.015419627<br>
+<strong>k</strong> = 3<br>
+<strong>patk</strong> = 0.9946285714285714<br>
+<strong>predicts</strong> = [(243, 3, 2.8580527543382976481), (200, 3, 2.1917740126087692629), (229, 3, 4.4232798035356568566), (55, 3, 3.481322781674423673), (255, 3, 4.0), (136, 3, 1.8582726348721363119), (144, 3, 3.4108602225472154767), (344, 3, 4.4420137234098214032), (223, 3, 4.039731778318118331), (12, 3, 3.4232798035356568564), (453, 3, 2.2347616704656384041), (404, 3, 1.4630115818537751876), (560, 3, 2.7945698887263922614), (503, 3, 3.831320722997272262), (183, 3, 3.9456455143653115353), (6, 3, 3.0780653979982013073), (275, 3, 2.9999999999999999998), (483, 3, 4.0), (221, 3, 3.4232798035356568564), (585, 3, 3.8319479785364651396), ...]<br>
+<strong>ratings</strong> =        userId  movieId  rating
+0         196    ...   12      203       3
+
+[100000 rows x 3 columns]<br>
+<strong>ratingsMatrix</strong> = array([[5., 0., 0., ..., 0., 0., 0.],
+       [5...., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])<br>
+<strong>rsmeVal</strong> = 0.47336888354538037<br>
+<strong>spearmanVal</strong> = 0.99999999916335050796<br>
+<strong>start</strong> = 94.935980034<br>
+<strong>testPairList</strong> = [(243, 3), (114, 6), (252, 7), (304, 8), (285, 11), (209, 13), (223, 14), (233, 19), (118, 20), (166, 21), (307, 24), (37, 26), (101, 27), (49, 30), (224, 32), (289, 33), (180, 35), (277, 36), (9, 39), (283, 40), ...]<br>
+<strong>testRatingMatrix</strong> = array([[5., 0., 0., ..., 0., 0., 0.],
+       [5...., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])<br>
+<strong>uusim</strong> = array([[ 1.00000000e+00,  4.34108342e-02,  1.105...399e-02,  1.00000000e+00]],
+      dtype=float128)<br>
+<strong>vtr</strong> = array([[ 1.71374221e-02,  5.08366829e-02,  2.322...65451937e-03, -1.65451937e-03, -1.65451937e-03]])</td></tr></table>
+</body></html>
